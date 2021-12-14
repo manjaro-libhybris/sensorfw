@@ -42,4 +42,5 @@ package() {
     mkdir -p $pkgdir/etc/systemd/system/sensorfwd.service.d/
     cp ./rpm/sensorfwd.service $pkgdir/usr/lib/systemd/system/
     cp ./rpm/sensorfwd-hybris-dropin.conf $pkgdir/etc/systemd/system/sensorfwd.service.d/
+    rm -rf $pkgdir/lib
 }
