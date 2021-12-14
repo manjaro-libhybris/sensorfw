@@ -27,7 +27,8 @@ build() {
     CONFIG+="mce" CONFIG+="configs" \
     CONFIG+="autohybris" CONFIG+="binder" \
     PC_VERSION=`echo $pkgver | sed 's/+.*//'` \
-    QMAKE_CXXFLAGS+="-I/usr/lib/glib-2.0/include"
+    QMAKE_CXXFLAGS+="-I/usr/lib/glib-2.0/include" \
+    PREFIX="/usr"
     make
 }
 
