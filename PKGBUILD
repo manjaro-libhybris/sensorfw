@@ -8,7 +8,7 @@ pkgdesc="Sensor Framework provides an interface to hardware sensor drivers throu
 arch=('x86_64' 'aarch64')
 url="https://github.com/droidian/sensorfw"
 license=('LGPLv2')
-depends=('libngf-git' 'libiphb-git' 'mlite' 'deviceinfo' 'libgbinder')
+depends=('libngf-git' 'libiphb-git' 'mlite' 'deviceinfo' 'libgbinder' 'libhybris')
 makedepends=('git' 'doxygen')
 provides=("${pkgname%-hybris}")
 conflicts=("${pkgname%-hybris}")
@@ -25,7 +25,7 @@ build() {
     cd "${srcdir}/${pkgname}"
     qmake \
     CONFIG+="mce" CONFIG+="configs" \
-    CONFIG+="autohybris" CONFIG+="binder" \
+    CONFIG+="hybris" CONFIG+="binder" \
     PC_VERSION=`echo $pkgver | sed 's/+.*//'` \
     QMAKE_CXXFLAGS+="-I/usr/lib/glib-2.0/include" \
     PREFIX="/usr"
