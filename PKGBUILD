@@ -3,7 +3,7 @@
 pkgname=sensorfw-hybris
 
 pkgver=0.11.8.5.r0.g8f5ba90
-pkgrel=1
+pkgrel=3
 pkgdesc="Sensor Framework provides an interface to hardware sensor drivers through logical sensors"
 arch=('x86_64' 'aarch64')
 url="https://github.com/droidian/sensorfw"
@@ -41,6 +41,7 @@ package() {
     mkdir -p $pkgdir/usr/lib/systemd/system/
     mkdir -p $pkgdir/etc/systemd/system/sensorfwd.service.d/
     cp ./rpm/sensorfwd.service $pkgdir/usr/lib/systemd/system/
+    sudo sed  "s/device-info/deviceinfo/g" -i $pkgdir/usr/lib/systemd/system/sensorfwd.service
     cp ./rpm/sensorfwd-hybris-dropin.conf $pkgdir/etc/systemd/system/sensorfwd.service.d/
     rm -rf $pkgdir/lib
 }
